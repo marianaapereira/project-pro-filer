@@ -1,6 +1,3 @@
-"""Arquivo que estudantes devem editar"""
-
-
 def show_deepest_file(context):
     if not context["all_files"]:
         print("No files found")
