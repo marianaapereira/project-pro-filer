@@ -15,7 +15,7 @@ def test_invalid_file(capsys):
 
 def test_no_extension_file(capsys):
     context = {
-        "base_path": "./tests/actions/__pycache__/test_show_details_mock"
+        "base_path": "tests/actions/__pycache__/test_show_details_mock"
     }
 
     output_line_1 = "File name: test_show_details_mock"
@@ -39,7 +39,7 @@ def test_no_extension_file(capsys):
 
 def test_valid_file(capsys):
     context = {
-        "base_path": "./images/pro-filer-preview.gif"
+        "base_path": "images/pro-filer-preview.gif"
     }
 
     output_line_1 = "File name: pro-filer-preview.gif"
