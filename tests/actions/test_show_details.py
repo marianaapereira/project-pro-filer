@@ -15,7 +15,7 @@ def test_invalid_file(capsys):
 
 def test_no_extension_file(capsys):
     context = {
-        "base_path": "tests/actions/__pycache__/test_show_details_mock"
+        "base_path": "tests/actions/test_show_details_mock"
     }
 
     output_line_1 = "File name: test_show_details_mock"
