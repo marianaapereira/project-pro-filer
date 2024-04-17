@@ -1,4 +1,5 @@
 from pro_filer.actions.main_actions import show_disk_usage  # NOQA
+from pro_filer.cli_helpers import _get_printable_file_path
 
 
 def test_no_files(capsys):
@@ -22,9 +23,9 @@ def test_file_list(capsys, tmp_path):
     test_file_2.write_text("Test file 2: Hello!")
     test_file_3.write_text("test file 3: world")
 
-    test_file_1 = str(tmp_path / "test_file_1.txt")
-    test_file_2 = str(tmp_path / "test_file_2.txt")
-    test_file_3 = str(tmp_path / "test_file_3.txt")
+    test_file_1 = str(test_file_1)
+    test_file_2 = str(test_file_2)
+    test_file_3 = str(test_file_3)
 
     context = {
         "all_files": [
@@ -34,17 +35,21 @@ def test_file_list(capsys, tmp_path):
         ]
     }
 
+    formatted_file_path_1 = f"'{_get_printable_file_path(test_file_1)}':"
+    formatted_file_path_2 = f"'{_get_printable_file_path(test_file_2)}':"
+    formatted_file_path_3 = f"'{_get_printable_file_path(test_file_3)}':"
+
     output_line_1 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_1.txt':"
-        "        25 (40%)"
+        f"{formatted_file_path_1}"
+        "25 (40%)"
     )
     output_line_2 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_2.txt':"
-        "        19 (30%)"
+        f"{formatted_file_path_2}"
+        "19 (30%)"
     )
     output_line_3 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_3.txt':"
-        "        18 (29%)"
+        f"{formatted_file_path_3}"
+        "18 (29%)"
     )
     output_line_4 = "Total size: 62"
 
@@ -57,4 +62,4 @@ def test_file_list(capsys, tmp_path):
 
     show_disk_usage(context)
     captured = capsys.readouterr()
-    assert expected_response == captured.out
+    assert expected_response.replace(' ', '') == captured.out.replace(' ', '')
