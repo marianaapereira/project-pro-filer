@@ -35,13 +35,16 @@ def test_file_list(capsys, tmp_path):
     }
 
     output_line_1 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_1.txt':        25 (40%)"
+        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_1.txt':"
+        "        25 (40%)"
     )
     output_line_2 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_2.txt':        19 (30%)"
+        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_2.txt':"
+        "        19 (30%)"
     )
     output_line_3 = (
-        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_3.txt':        18 (29%)"
+        "'/tmp/pytest-of-marianaperei...est_file_list0/test_file_3.txt':"
+        "        18 (29%)"
     )
     output_line_4 = "Total size: 62"
 
